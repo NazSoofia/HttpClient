@@ -44,7 +44,7 @@ public class BaseClass {
    public static JSONObject httpToJsonResponse(CloseableHttpResponse httpsResponse) throws ParseException, IOException {
 
 	    String stringResponse = EntityUtils.toString(httpsResponse.getEntity(),"UTF-8");
-		JSONObject jsonResponse = new JSONObject(httpsResponse);
+		JSONObject jsonResponse = new JSONObject(stringResponse);
 		System.out.println("Response : " + jsonResponse);
 		return jsonResponse;
 	}

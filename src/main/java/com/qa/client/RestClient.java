@@ -1,6 +1,7 @@
 package com.qa.client;
 
 import java.io.IOException;
+import java.nio.MappedByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.client.ClientProtocolException;
@@ -37,12 +38,12 @@ public class RestClient {
 		HttpGet httpget = new HttpGet(url);
 		
 		System.out.println(httpget.getMethod() +  " : " + httpget.getURI());
-		
 		for (Map.Entry<String, String> map1 : map.entrySet()) {
 			httpget.addHeader(map1.getKey(), map1.getValue());
 		}
 		
 		CloseableHttpResponse httpResponse = httpClient.execute(httpget);
+		
 
 		System.out.println("Status Code : " + httpResponse.getStatusLine().getStatusCode());
 		

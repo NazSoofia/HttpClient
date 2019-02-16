@@ -22,7 +22,8 @@ public class GetVerificator extends BaseClass {
 		prop.load(new FileInputStream(responseFile));
 		
 		JSONObject jsonResponse = httpToJsonResponse(httpResponse);
-
+		JSONObject json = (JSONObject) jsonResponse.getJSONArray("data").get(0);
+System.out.println(json.get("id"));
 		Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), RESPONSE_STATUS_CODE_200);
 		assertionsOfPages(jsonResponse, "page", "per_page", "total", "total_pages");
 		
